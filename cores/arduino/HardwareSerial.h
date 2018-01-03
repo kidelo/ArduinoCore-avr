@@ -43,14 +43,14 @@
 #if ((RAMEND - RAMSTART) < 1023)
 #define SERIAL_TX_BUFFER_SIZE 16
 #else
-#define SERIAL_TX_BUFFER_SIZE 64
+#define SERIAL_TX_BUFFER_SIZE 32
 #endif
 #endif
 #if !defined(SERIAL_RX_BUFFER_SIZE)
 #if ((RAMEND - RAMSTART) < 1023)
 #define SERIAL_RX_BUFFER_SIZE 16
 #else
-#define SERIAL_RX_BUFFER_SIZE 64
+#define SERIAL_RX_BUFFER_SIZE 16
 #endif
 #endif
 #if (SERIAL_TX_BUFFER_SIZE>256)
@@ -147,6 +147,8 @@ class HardwareSerial : public Stream
   extern HardwareSerial Serial1;
   #define HAVE_HWSERIAL1
 #endif
+
+/*
 #if defined(UBRR2H)
   extern HardwareSerial Serial2;
   #define HAVE_HWSERIAL2
@@ -155,7 +157,7 @@ class HardwareSerial : public Stream
   extern HardwareSerial Serial3;
   #define HAVE_HWSERIAL3
 #endif
-
+*/
 extern void serialEventRun(void) __attribute__((weak));
 
 #endif

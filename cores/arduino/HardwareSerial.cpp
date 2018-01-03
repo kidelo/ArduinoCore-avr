@@ -32,6 +32,10 @@
 #include "HardwareSerial.h"
 #include "HardwareSerial_private.h"
 
+// do no generate code for unused serial ports
+#undef HAVE_HWSERIAL2
+#undef HAVE_HWSERIAL3
+
 // this next line disables the entire HardwareSerial.cpp, 
 // this is so I can support Attiny series and any other chip without a uart
 #if defined(HAVE_HWSERIAL0) || defined(HAVE_HWSERIAL1) || defined(HAVE_HWSERIAL2) || defined(HAVE_HWSERIAL3)
